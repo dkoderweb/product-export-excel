@@ -27,11 +27,10 @@ class BookingReportExport implements FromCollection, WithHeadings, WithMapping
         $firstRow = [
             'Booking Date',
             'Booking Id',
-            'User Name',
+            'User First Name',
             'User last name',
             'User Email',
             'User Mobile Number',
-            '',  
         ];
 
         $secondRow = [
@@ -48,8 +47,10 @@ class BookingReportExport implements FromCollection, WithHeadings, WithMapping
         $products = $booking->products; 
 
         foreach ($products as $key => $product) {
+            $firstRow[] = '';
             $firstRow[] = 'Product ' . ($key + 1);
             $firstRow[] = '';
+
             $secondRow[] = 'Name';
             $secondRow[] = 'Price';
             $secondRow[] = 'Discount';
